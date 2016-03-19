@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://flyingobjects.nrcstudios.info/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <script type="text/javascript" src="./assets/jquery.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./assets/jquery-ui.js"></script>
+<script type="text/javascript" src="./assets/opera.js"></script>
+<script type="text/javascript" src="./assets/jquery.flyingobjects.js"></script>
+ <script type="text/javascript" src="./assets/jquery.audioeffects.min.js"></script>
+<link href="./assets/css" rel="stylesheet" type="text/css">
+<link href="./assets/css(1)" rel="stylesheet" type="text/css">
+      <script src="./assets/ocanvas.min.js"></script>
+      <script src="./assets/canvascripts.js"></script>
+  <title>Flying Objects Plugin</title>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+     $('#blockwrap').flyingobjects({
+
+         images: ["matt.png"],
+         totalobjects: 1,
+         easing: 'swing',
+         speed: 12000,
+         zindex: 999999,
+         initialize: "mouseover",
+         addclass: "wbottle"
+   });
+
+     $('#block2').flyingobjects({
+
+         images: ["matt.png"],
+         totalobjects: 2,
+         easing: 'swing',
+         speed: 3000,
+         initialize: "load"
+   });
+
+   $('#block2').flyingobjects({
+
+       images: ["matt.png"],
+       totalobjects: 2,
+       easing: 'swing',
+       speed: 3000,
+       initialize: "load"
+ });
+
+
+     $('#block2').flyingobjects({
+
+         images: ["matt.png", "matt2.png", "matt2.png", "matt2.png"],
+         totalobjects: 10,
+         easing: 'swing',
+         speed: 300,
+         initialize: "load"
+   });
+  function blockmove(){
+   $('#bg').animate({'left' : '-1000px', 'top': '0px'},{duration:60000,easing:"easeOutCirc", complete: function(){$('#bg').delay(1000).animate({'left' : '0px', 'top' : '0px'},{duration:30000,easing:"easeOutCirc", complete: blockmove});}});
+
+  } ;
+ blockmove();
+
+
+
+
+  });
+
+
+  </script>
+  <style type="text/css">
+  body{
+    background:#000;
+  }
+ #blockwrap{
+   position:absolute;
+   top:0px;
+   left:0px;
+   width:1900px;
+   height:1000px;
+   overflow:hidden;
+ }
+
+
+ #block2{
+
+    width:1900px;
+    height:1000px;
+    overflow:hidden;
+    position:absolute;
+    background:#eee;
+    border:1px solid #111;
+  background: #000;
+   top:0px;
+   left:0px;
+
+ }
+ #window{
+   z-index:9999;
+    top:0px;
+   left:0px;
+   position:absolute;
+   width:2153px;
+   height:1000px;;
+ }
+ #bg{
+   position:absolute;
+   top:0px;
+   left:0px;
+ }
+ #logo{
+   background: url(images/logo.png)no-repeat;
+   width:469px;
+   height:377px;
+   position:absolute;
+   top:0px;
+   left:0px;
+   z-index:9999999999;
+ }
+ h2{
+   font-family: Rokkitt;
+   color:#fff;
+   font-size:12px; position:absolute;
+   bottom:90px;
+   right:60px;
+ }
+ h2:hover{
+   color:#999;
+ }
+ .splash{
+   position:absolute;
+   top:0px;
+   right:100px;
+   color:#fff;
+   width:400px;
+   height:50px;
+    z-index:9999999999;
+    opacity:0;
+    background: url(splashbg.png)no-repeat 0px 0px;
+    padding-left:10px;
+    padding-bottom:40px;
+ }
+ .splash p{
+   color:#fff;
+  font-family: 'Podkova', sans-serif;
+   font-size:15px;
+ }
+ .splash p strong{
+   color:#999;
+ }
+ #canvas{
+   opacity:0;
+ }
+ .features{
+   width:430px;
+   opacity:0;
+   position:absolute;
+   left:430px;
+   top:250px;
+
+
+
+ }
+ .features h1{
+   font-size:30px;
+   color:rgb(236, 73, 234);
+  text-shadow:1px 1px 5px #000;
+   font-family:"Rokkitt";
+ }
+ .features p{
+   font-size:15px;
+   color:#999;
+
+   font-family:"Rokkitt";
+ }
+  .features li{
+   font-size:19px;
+   color:#fff;
+
+   font-family:"Rokkitt";
+ }
+ .features ul{
+   margin-left:-50px;
+ }
+
+  .features strong{
+
+   color:#fff;
+
+
+ }
+ #canvaswrap{
+  z-index:99999;
+   width:900px;
+   height:900px;
+   position:absolute;
+   top:100px;
+   left:450px;
+ }
+ #canvas2{
+  z-index:99999;
+  cursor:pointer;
+   position:absolute;
+   top:725px;
+   left:-1240px;
+   opacity:0.2;
+ }
+  #canvas3{
+  z-index:99999;
+  cursor:pointer;
+   position:absolute;
+   top:-345px;
+   left:-1230px;
+   opacity:0.2;
+ }
+  #canvas4{
+  z-index:99999;
+  cursor:pointer;
+   position:absolute;
+   top:1225px;
+   left:-1180px;
+   opacity:0.2;
+ }
+
+
+  </style>
+</head>
+<link rel="stylesheet" href="flipclock.css">
+
+
+		<script src="flipclock.js"></script>
+
+<script type="text/javascript">
+		var clock;
+
+		$(document).ready(function() {
+			var clock;
+
+			clock = $('.clock').FlipClock({
+		        clockFace: 'DailyCounter',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('The clock has stopped!')
+		        	}
+		        }
+		    });
+
+		    clock.setTime(45000);
+		    clock.setCountdown(true);
+		    clock.start();
+
+		});
+	</script>
+
+
+
+<body data-feedly-mini="yes">
+  <div style="width: 100%; margin-top: 300px;">
+<div style="margin-left: auto; margin-right: auto; width:700px;" class="clock" style="margin:2em;"></div>
+</div>
+ <div id="block2"></div>
+<canvas id="canvas" width="900" height="900" style="opacity: 1;"></canvas>
+      <canvas id="canvas2" style="top: 425px; left: 40px; opacity: 0.5;"></canvas>
+      <canvas id="canvas3" style="top: 45px; left: 230px; opacity: 0.5;"></canvas>
+      <canvas id="canvas4" style="top: 725px; left: 180px; opacity: 0.7;"></canvas>
+
+   <audio id="scifi48"><source src="audio/scifi048.wav">
+   <audio id="scifi1"><source src="audio/scifi016.wav">
+   <audio id="scifi2"><source src="audio/scifi012.wav">
+
+
+
+
+</body></html>
