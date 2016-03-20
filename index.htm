@@ -243,7 +243,12 @@
 		        }
 		    });
 
-		    clock.setTime(45000);
+        var currTime = Date.now()
+        var endTime = 1458475200 * 1000;
+
+        console.log(currTime);
+
+		    clock.setTime((endTime - currTime)/1000);
 		    clock.setCountdown(true);
 		    clock.start();
 
@@ -255,8 +260,10 @@
 <body data-feedly-mini="yes">
   <div style="width: 100%; margin-top: 300px;">
 <div style="margin-left: auto; margin-right: auto; width:700px;" class="clock" style="margin:2em;"></div>
+
 </div>
- <div id="block2"></div>
+
+ <div id="block2"><h1 style="color: white; font-family:Arial;margin-left: 450px; margin-right: auto; width:700px; margin-top: 400px; ">Submit to: hacksheffield.devpost.com</h1></div>
 <canvas id="canvas" width="900" height="900" style="opacity: 1;"></canvas>
       <canvas id="canvas2" style="top: 425px; left: 40px; opacity: 0.5;"></canvas>
       <canvas id="canvas3" style="top: 45px; left: 230px; opacity: 0.5;"></canvas>
